@@ -1,0 +1,28 @@
+@startuml
+
+participant 企业微信主页面 as main
+participant 添加成员页面 as add_member
+participant 通讯录页面 as contact
+participant 添加部门页面 as add_department
+participant 导入通讯录页面 as import_contact
+
+main -> contact: 跳转通讯录页面
+main -> add_member: 跳转到添加\n成员页面
+main -> import_contact: 跳转导入通讯录页面
+
+add_member -> add_member: 添加成员操作，点击保存
+add_member -> contact: 跳转到通讯录页面
+
+add_department -> add_department: 添加部门操作，点击保存
+add_department -> contact: 跳转到通讯录页面
+
+import_contact -> import_contact:导入通讯录操作，点击上传
+import_contact -> contact:跳转到通讯录页面
+
+contact -> add_member: 跳转到添加\n成员页面
+contact -> add_department: 弹窗添加部门页面
+contact -> import_contact: 跳转到导入通讯录页面
+contact -> contact: 检查是否成功\n添加成员
+contact -> contact: 检查是否成功\n添加部门
+contact -> contact: 检查是否成功\n导入通讯录
+@enduml
